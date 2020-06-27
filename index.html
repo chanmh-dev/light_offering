@@ -1,0 +1,281 @@
+<!DOCTYPE html> 
+  <html>
+  <head>
+<title>LIGHT OFFERING</title>
+	<link rel="stylesheet" type="text/css" href="./style.css" media="screen"
+ </head>
+ <body id="the_body">
+<center>
+    <h1>LIGHT OFFERING</h1>
+</center>
+
+
+<table border="0"  align="left">
+    <tr>
+        <td><img id="myImage00" onclick="changeImage(this.src)"  src="./image/bulboff00.gif" ></img></th>
+        <td><img id="myImage01" onclick="changeImage(this.src)"  src="./image/bulboff01.gif" ></img></th>
+        <td><img id="myImage02" onclick="changeImage(this.src)"  src="./image/bulboff02.gif" ></img></th>
+    </tr>
+    <tr>
+        <td><img id="myImage03" onclick="changeImage(this.src)"  src="./image/bulboff03.gif" ></img></th>
+        <td><img id="myImage04" onclick="changeImage(this.src)"  src="./image/bulboff04.gif" ></img></th>
+        <td><img id="myImage05" onclick="changeImage(this.src)"  src="./image/bulboff05.gif" ></img></th>
+    </tr>
+    <tr>
+        <td><img id="myImage06" onclick="changeImage(this.src)"  src="./image/bulboff06.gif" ></img></th>
+        <td><img id="myImage07" onclick="changeImage(this.src)"  src="./image/bulboff07.gif" ></img></th>
+        <td><img id="myImage08" onclick="changeImage(this.src)"  src="./image/bulboff08.gif" ></img></th>
+    </tr>
+    <tr>
+        <td><img id="myImage09" onclick="changeImage(this.src)"  src="./image/bulboff09.gif" ></img></th>
+        <td><img id="myImage10" onclick="changeImage(this.src)"  src="./image/bulboff10.gif" ></img></th>
+        <td><img id="myImage11" onclick="changeImage(this.src)"  src="./image/bulboff11.gif" ></img></th>
+    </tr>
+
+</table>
+
+
+<table border="0"  align="right">
+    <tr>
+        <td><img id="myImage12" onclick="changeImage(this.src)"  src="./image/bulboff12.gif" ></img></th>
+        <td><img id="myImage13" onclick="changeImage(this.src)"  src="./image/bulboff13.gif" ></img></th>
+        <td><img id="myImage14" onclick="changeImage(this.src)"  src="./image/bulboff14.gif" ></img></th>
+    </tr>
+    <tr>
+        <td><img id="myImage15" onclick="changeImage(this.src)"  src="./image/bulboff15.gif" ></img></th>
+        <td><img id="myImage16" onclick="changeImage(this.src)"  src="./image/bulboff16.gif" ></img></th>
+        <td><img id="myImage17" onclick="changeImage(this.src)"  src="./image/bulboff17.gif" ></img></th>
+    </tr>
+    <tr>
+        <td><img id="myImage18" onclick="changeImage(this.src)"  src="./image/bulboff18.gif" ></img></th>
+        <td><img id="myImage19" onclick="changeImage(this.src)"  src="./image/bulboff19.gif" ></img></th>
+        <td><img id="myImage20" onclick="changeImage(this.src)"  src="./image/bulboff20.gif" ></img></th>
+    </tr>
+    <tr>
+        <td><img id="myImage21" onclick="changeImage(this.src)"  src="./image/bulboff21.gif" ></img></th>
+        <td><img id="myImage22" onclick="changeImage(this.src)"  src="./image/bulboff22.gif" ></img></th>
+        <td><img id="myImage23" onclick="changeImage(this.src)"  src="./image/bulboff23.gif" ></img></th>
+    </tr>
+
+</table>
+
+
+<button onclick="lightOn()">Light On</button>
+<button onclick="lightOff()">Light Off</button>
+<button onclick="toggleBulbVisibility()">Toggle Bulb Visibility</button>
+<button onclick="setImage()">Change Image</button>
+
+
+ <div id="demo">
+ </div>
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="jquery.fireworks.js"></script>
+
+<script>
+var img_index = 0;
+
+function firework(){
+	$('#demo').fireworks({ sound: true, opacity: 0.5, width: '100%', height: '100%' });
+}
+
+
+function setImage(){
+
+		var BackgroundImg=[
+		"./image/buddha00.jpg","./image/buddha01.jpg",
+		"./image/buddha02.jpg", "./image/buddha03.jpg",
+		"./image/buddha04.jpg", "./image/buddha05.jpg",
+		"./image/buddha06.jpg", "./image/buddha07.jpg",
+		"./image/buddha08.jpg", "./image/buddha09.jpg",
+		"./image/buddha10.jpg", "./image/buddha11.jpg",
+		"./image/buddha12.jpg", "./image/buddha13.jpg",
+		"./image/buddha14.jpg", "./image/buddha15.jpg",
+		"./image/buddha16.jpg", "./image/buddha17.jpg",
+		"./image/buddha18.jpg", "./image/buddha19.jpg",
+		"./image/buddha20.jpg", "./image/buddha21.jpg",
+		"./image/buddha22.jpg", "./image/buddha23.jpg",
+		"./image/bwm.jpg",
+        ];	
+		
+		//var i = 0;
+		console.log(img_index);
+		if (img_index < 24)
+			img_index++;
+		else
+			img_index = 0;
+
+		document.body.style.backgroundImage = 'url("' + BackgroundImg[img_index] + '")';
+
+}
+
+function toggleBulbVisibility(){
+
+	var idx = 00;
+	var str = "";
+	
+	for (iidx= 0; idx< 24; idx++) {
+		str = idx.toString()
+		if (idx < 10){
+			str = "0" + str;
+		}
+		
+		 var image = document.getElementById('myImage' + str);
+		 
+		if (image.src.match("empty")) {
+			image.src = "./image/bulboff" + str + ".gif";
+		}
+		else{
+			image.src = "./image/empty.gif";
+		}
+/*
+		  if (image.style.display === "none") {
+			image.style.display = "block";
+		  } 
+		  else {
+			image.style.display = "none";
+		  }
+*/
+	}
+}
+
+
+
+function changeImage(_src) {
+
+        var BackgroundImg=[
+		"./image/buddha00.jpg","./image/buddha01.jpg",
+		"./image/buddha02.jpg", "./image/buddha03.jpg",
+		"./image/buddha04.jpg", "./image/buddha05.jpg",
+		"./image/buddha06.jpg", "./image/buddha07.jpg",
+		"./image/buddha08.jpg", "./image/buddha09.jpg",
+		"./image/buddha10.jpg", "./image/buddha11.jpg",
+		"./image/buddha12.jpg", "./image/buddha13.jpg",
+		"./image/buddha14.jpg", "./image/buddha15.jpg",
+		"./image/buddha16.jpg", "./image/buddha17.jpg",
+		"./image/buddha18.jpg", "./image/buddha19.jpg",
+		"./image/buddha20.jpg", "./image/buddha21.jpg",
+		"./image/buddha22.jpg", "./image/buddha23.jpg",
+		"./image/bwm.jpg",
+        ];
+
+
+	var filename = _src;
+	filename = filename.slice(filename.lastIndexOf('.')  -2);
+	filename = filename.substr(0, 2);
+
+	var audio = new Audio('./audio/lightflk.wav');
+	audio.play();
+		
+
+	var image = document.getElementById('myImage' + filename);
+	
+	
+	if (image.src.match("bulboff" + filename)) {
+		console.log(image.src);
+		 image.src = "./image/bulbon" + filename + ".gif";
+		 var i = parseInt(filename, 10);;
+		 //$('body').css('backgroundImage', 'url("' + BackgroundImg[i] + '")');		 
+		 
+	}
+	else if (image.src.match("bulbon" + filename)) {
+		console.log(image.src);
+		 image.src = "./image/bulboff" + filename + ".gif";
+	}
+	
+}
+
+function myLoop(i) {
+	setTimeout(function() {
+	str = i.toString()
+			if (i < 10){
+			str = "0" + str;
+		}
+		
+		var BackgroundImg=[
+		"./image/buddha00.jpg","./image/buddha01.jpg",
+		"./image/buddha02.jpg", "./image/buddha03.jpg",
+		"./image/buddha04.jpg", "./image/buddha05.jpg",
+		"./image/buddha06.jpg", "./image/buddha07.jpg",
+		"./image/buddha08.jpg", "./image/buddha09.jpg",
+		"./image/buddha10.jpg", "./image/buddha11.jpg",
+		"./image/buddha12.jpg", "./image/buddha13.jpg",
+		"./image/buddha14.jpg", "./image/buddha15.jpg",
+		"./image/buddha16.jpg", "./image/buddha17.jpg",
+		"./image/buddha18.jpg", "./image/buddha19.jpg",
+		"./image/buddha20.jpg", "./image/buddha21.jpg",
+		"./image/buddha22.jpg", "./image/buddha23.jpg",
+		"./image/bwm.jpg",
+        ];	
+		
+	var audio = new Audio('./audio/lightflk.wav');
+	audio.play();
+	var audio1 = new Audio('./audio/applause.mp3')
+		
+		
+	var image = document.getElementById('myImage' + str);
+	image.src = "./image/bulbon" + str + ".gif";
+    console.log(str); //  your code here         
+
+	document.body.style.backgroundImage = 'url("' + BackgroundImg[i] + '")';
+	
+    if (--i >= 0) 
+		myLoop(i);   //  decrement i and call myLoop again if i > 0
+	else{
+		audio1.play();
+		document.body.style.backgroundImage = 'url("' + BackgroundImg[24] + '")';
+		//firework();
+	}
+  }, 1000)
+} 
+
+function lightOn(){
+/*
+	var idx = 00;
+	var str = "";
+	
+	for (iidx= 0; idx< 12; idx++) {
+		str = idx.toString()
+		if (idx < 10){
+			str = "0" + str;
+		}
+		
+		var image = document.getElementById('myImage' + str);
+		image.src = "./bulbon" + str + ".gif";
+	}
+*/	
+	myLoop(23);
+	
+}
+
+function lightOff(){
+
+	var idx = 00;
+	var str = "";
+	
+	for (iidx= 0; idx< 24; idx++) {
+		str = idx.toString()
+		if (idx < 10){
+			str = "0" + str;
+		}
+		
+		var image = document.getElementById('myImage' + str);
+		image.src = "./image/bulboff" + str + ".gif";
+	}
+	
+}
+
+//document.getElementById("demo").innerHTML="Hello World!";
+/*
+function changeImage() {
+    var image = document.getElementById('myImage');
+    if (image.src.match("bulbon")) {
+        image.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+    } else {
+        image.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+    }
+}
+*/
+</script>
+  </body>
+  <html>
